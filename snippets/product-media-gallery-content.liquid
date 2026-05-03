@@ -854,11 +854,13 @@
     .media-gallery--hint {
       --slideshow-gap: var(--gap-2xs);
 
+      /* Full-width slides + contain so product photos are never cropped on small screens */
       :not(.dialog-zoomed-gallery) > .product-media-container:not(:only-child) {
-        width: 90%;
+        width: 100%;
+        max-width: 100%;
 
         .product-media img {
-          object-fit: cover;
+          object-fit: contain;
         }
       }
     }
@@ -986,6 +988,11 @@
   }
 
   @media screen and (max-width: 749px) {
+    /* Hide thumbnail strip under main image on mobile (grid layout uses slideshow < 750px, not .media-gallery--carousel) */
+    media-gallery slideshow-component > slideshow-controls[thumbnails] {
+      display: none;
+    }
+
     /* Media gallery has a peeking slide on the right side always, and on the left side when the current slide is the last one */
     .media-gallery--hint
       :is(

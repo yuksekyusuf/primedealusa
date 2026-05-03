@@ -1554,7 +1554,7 @@ media-gallery {
 
 @media screen and (max-width: 749px) {
   .product-media-container.constrain-height {
-    max-height: none;
+    max-height: 65vh;
   }
 }
 
@@ -1587,6 +1587,7 @@ media-gallery {
 .product-media-container img {
   aspect-ratio: inherit;
   object-fit: contain;
+  height: 100%;
 }
 
 .product-media-container.media-fit-contain img {
@@ -3327,6 +3328,26 @@ fly-to-cart.fly-to-cart--sticky {
   }
 }
 
+/* Collection template grid: full image visible inside card media box (not cropped) */
+results-list.collection-page-product-grid .card-gallery .product-media-container.media-fit {
+  --product-media-fit: contain;
+}
+
+results-list.collection-page-product-grid .card-gallery .product-media-container.media-fit img {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Product list sections (e.g. homepage “standout deals”): full image inside card frame */
+.product-list-section .card-gallery .product-media-container.media-fit {
+  --product-media-fit: contain;
+}
+
+.product-list-section .card-gallery .product-media-container.media-fit img {
+  object-fit: contain;
+  object-position: center;
+}
+
 .collection-wrapper--full-width .main-collection-grid__title {
   margin-left: var(--page-margin);
 }
@@ -3748,7 +3769,7 @@ fly-to-cart.fly-to-cart--sticky {
   @container resource-list(min-width: 450px) and (max-width: 749px) {
     --resource-list-columns-per-row: 3;
 
-    grid-template-columns: repeat(var(--resource-list-columns-per-row), 1fr);
+    grid-template-columns: repeat(var(--resource-list-columns-per-row), minmax(0, 1fr));
 
     /* Avoid orphan in last row when there are 4, 7, or 10 items */
     &:has(.resource-list__item:first-child:nth-last-child(3n + 1)),
@@ -3759,7 +3780,7 @@ fly-to-cart.fly-to-cart--sticky {
   }
 
   @container resource-list (min-width: 750px) {
-    grid-template-columns: repeat(var(--resource-list-columns-per-row), 1fr);
+    grid-template-columns: repeat(var(--resource-list-columns-per-row), minmax(0, 1fr));
 
     &:has(.resource-list__item:first-child:nth-last-child(n + 9)) {
       --resource-list-columns-per-row: 5;
@@ -3791,6 +3812,7 @@ fly-to-cart.fly-to-cart--sticky {
 
 .resource-list__item {
   height: 100%;
+  min-width: 0;
   color: var(--color-foreground);
   text-decoration: none;
 }

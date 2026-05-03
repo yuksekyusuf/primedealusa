@@ -17,8 +17,8 @@
     echo '--column-count-mobile: ' | append: section.settings.mobile_columns | append: ';'
     echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
     echo '--resource-list-row-gap-desktop: ' | append: section.settings.rows_gap | append: 'px;'
-    echo '--resource-list-columns: repeat(' | append: section.settings.columns | append: ', 1fr);'
-    echo '--resource-list-columns-mobile: repeat(' | append: section.settings.mobile_columns | append: ', 1fr);'
+    echo '--resource-list-columns: repeat(' | append: section.settings.columns | append: ', minmax(0, 1fr));'
+    echo '--resource-list-columns-mobile: repeat(' | append: section.settings.mobile_columns | append: ', minmax(0, 1fr));'
     echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
     echo '--column-count: ' | append: section.settings.columns | append: ';'
     echo '--column-count-mobile: ' | append: section.settings.mobile_columns | append: ';'
@@ -171,6 +171,18 @@
     {%- endif -%}
   </div>
 </product-recommendations>
+
+{% stylesheet %}
+  /* Full product visible inside the card frame (not cropped like cover) */
+  product-recommendations .card-gallery .product-media-container.media-fit {
+    --product-media-fit: contain;
+  }
+
+  product-recommendations .card-gallery .product-media-container.media-fit img {
+    object-fit: contain;
+    object-position: center;
+  }
+{% endstylesheet %}
 
 {% schema %}
 {

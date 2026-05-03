@@ -63,8 +63,8 @@
       capture resource_list_styles
         echo '--resource-list-column-gap-desktop: ' | append: columns_gap | append: 'px;'
         echo '--resource-list-row-gap-desktop: ' | append: rows_gap | append: 'px;'
-        echo '--resource-list-columns: repeat(' | append: columns | append: ', 1fr);'
-        echo '--resource-list-columns-mobile: repeat(' | append: mobile_columns | append: ', 1fr);'
+        echo '--resource-list-columns: repeat(' | append: columns | append: ', minmax(0, 1fr));'
+        echo '--resource-list-columns-mobile: repeat(' | append: mobile_columns | append: ', minmax(0, 1fr));'
         echo '--column-count-mobile: ' | append: mobile_columns | append: ';'
       endcapture
 

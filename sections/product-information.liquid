@@ -359,6 +359,25 @@
       white-space: nowrap;
     }
   }
+
+  /* Editorial PDP: variant labels and price */
+  .product-information .variant-picker .variant-option legend {
+    font-family: var(--font-body--family);
+    font-size: clamp(0.625rem, 0.58rem + 0.25vw, 0.6875rem);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-block-end: var(--margin-xs);
+    color: var(--color-foreground);
+  }
+
+  .product-information .product-details .price {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .product-information .product-details .compare-at-price {
+    opacity: 0.55;
+  }
 {% endstylesheet %}
 
 {% schema %}
