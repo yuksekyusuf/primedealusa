@@ -4,33 +4,69 @@
   @param {string} [style] - The style of the search action.
   @param {string} [class] - Additional classes for the search action.
   @param {string} [display_style] - The display style ('icon' or 'text').
+  @param {boolean} [show_contact_link] - When true and contact_link_url is set, show contact beside search with the same icon/text treatment.
+  @param {string} [contact_link_url] - URL for the contact link.
+  @param {string} [contact_link_label] - Label and aria-label for the contact link.
 
   @example
   {% render 'search', style: 'default', class: 'custom-class', display_style: 'icon' %}
 {%- enddoc -%}
 
-{% unless style == 'none' %}
-  <search-button
-    class="search-action{% if display_style == 'text' %} search-action--text{% endif %}{% if class != blank %} {{ class | strip }}{% endif %}"
-  >
-    <button
-      on:click="#search-modal/showDialog"
-      class="button-unstyled header-actions__action{% if display_style == 'text' %} header-actions__text-style{% endif %}"
-      aria-label="{{ 'content.search_input_label' | t }}"
-      aria-haspopup="dialog"
-    >
-      <span class="{% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}">
-        {{ 'content.search' | t }}
-      </span>
+{% liquid
+  assign show_contact_link = show_contact_link | default: false
+  assign contact_link_url = contact_link_url | default: ''
+  assign contact_link_label = contact_link_label | default: 'Contact'
+%}
 
-      <span class="svg-wrapper {% if display_style != 'icon' %}desktop:hidden{% endif %}">
-        {{ 'icon-search.svg' | inline_asset_content }}
-      </span>
-    </button>
-  </search-button>
+{% unless style == 'none' %}
+  <div
+    class="search-with-contact search-action{% if display_style == 'text' %} search-action--text{% endif %}{% if class != blank %} {{ class | strip }}{% endif %}"
+  >
+    <search-button class="search-with-contact__search">
+      <button
+        on:click="#search-modal/showDialog"
+        class="button-unstyled header-actions__action{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+        aria-label="{{ 'content.search_input_label' | t }}"
+        aria-haspopup="dialog"
+      >
+        <span class="{% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}">
+          {{ 'content.search' | t }}
+        </span>
+
+        <span class="svg-wrapper {% if display_style != 'icon' %}desktop:hidden{% endif %}">
+          {{ 'icon-search.svg' | inline_asset_content }}
+        </span>
+      </button>
+    </search-button>
+
+    {% if show_contact_link and contact_link_url != blank %}
+      <a
+        href="{{ contact_link_url }}"
+        class="search-with-contact__contact header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+        aria-label="{{ contact_link_label | escape }}"
+      >
+        <span class="{% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}">
+          {{- contact_link_label | escape -}}
+        </span>
+
+        <span class="svg-wrapper {% if display_style != 'icon' %}desktop:hidden{% endif %}" aria-hidden="true">
+          {{ 'icon-contact.svg' | inline_asset_content }}
+        </span>
+      </a>
+    {% endif %}
+  </div>
 {% endunless %}
 
 {% stylesheet %}
+  .search-with-contact {
+    align-items: center;
+    gap: var(--gap-2xs);
+  }
+
+  .search-with-contact__search {
+    display: flex;
+  }
+
   .search-action {
     --search-border-radius: var(--style-border-radius-inputs);
     --search-border-width: var(--style-border-width-inputs);

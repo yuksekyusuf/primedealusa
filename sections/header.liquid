@@ -99,7 +99,7 @@
     endif
   endif
   capture search
-    render 'search', style: search_style, class: search_class, display_style: section.settings.actions_display_style
+    render 'search', style: search_style, class: search_class, display_style: section.settings.actions_display_style, show_contact_link: section.settings.show_header_contact_link, contact_link_url: section.settings.header_contact_url, contact_link_label: section.settings.header_contact_label
   endcapture
 
   # Skip drawer search under specific conditions:
@@ -113,7 +113,7 @@
   if section.settings.search_row == 'bottom' or search_style != 'none' and skip_drawer_search == false
     # Mobile search duplicate for when search is not in the right order for mobile layout
     capture drawer_search
-      render 'search', class: 'search-action--hidden-on-menu', style: search_style, display_style: section.settings.actions_display_style
+      render 'search', class: 'search-action--hidden-on-menu', style: search_style, display_style: section.settings.actions_display_style, show_contact_link: section.settings.show_header_contact_link, contact_link_url: section.settings.header_contact_url, contact_link_label: section.settings.header_contact_label
     endcapture
   endif
 
@@ -1207,6 +1207,30 @@
       "id": "customer_account_menu",
       "label": "t:settings.menu",
       "default": "customer-account-main-menu"
+    },
+    {
+      "type": "header",
+      "content": "t:content.contact_link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header_contact_link",
+      "label": "t:settings.show_header_contact_link",
+      "info": "t:info.header_contact_link",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "header_contact_url",
+      "label": "t:settings.header_contact_url",
+      "visible_if": "{{ section.settings.show_header_contact_link }}"
+    },
+    {
+      "type": "text",
+      "id": "header_contact_label",
+      "label": "t:settings.header_contact_label",
+      "default": "Contact",
+      "visible_if": "{{ section.settings.show_header_contact_link }}"
     },
     {
       "type": "header",

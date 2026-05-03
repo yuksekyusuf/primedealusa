@@ -80,7 +80,7 @@
             "text_EMP3xh": {
               "type": "text",
               "settings": {
-                "text": "<p>Ralph Lauren, The North Face, and more \u2014 curated with clear value and fast fulfillment.</p>",
+                "text": "<p>Ralph Lauren, The North Face, and more — curated with clear value and fast fulfillment.</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -153,7 +153,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Women\u2019s Collection</h2><h2>Up to 50% Off</h2>",
+                "text": "<h2>Women’s Collection</h2><h2>Up to 50% Off</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -178,7 +178,7 @@
             "text_FbhkQy": {
               "type": "text",
               "settings": {
-                "text": "<p>Premium styles at prices you won\u2019t find in retail stores</p>",
+                "text": "<p>Premium styles at prices you won’t find in retail stores</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -264,7 +264,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<p><strong>Accessories \u2014 Small Pieces, Big Deals</strong></p>",
+                "text": "<p><strong>Accessories — Small Pieces, Big Deals</strong></p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -351,6 +351,47 @@
         "padding-block-end": 32
       }
     },
+    "pdu_trust_pillars_PDUA": {
+      "type": "pdu-trust-pillars",
+      "blocks": {
+        "pillar_a": {
+          "type": "pillar",
+          "settings": {
+            "kicker": "Authentic",
+            "title": "Real brands, curated",
+            "text": "Recognizable labels you already trust — not generic alternatives."
+          }
+        },
+        "pillar_b": {
+          "type": "pillar",
+          "settings": {
+            "kicker": "Value",
+            "title": "Pricing you can understand",
+            "text": "Compare-at pricing and savings shown clearly so the deal is obvious."
+          }
+        },
+        "pillar_c": {
+          "type": "pillar",
+          "settings": {
+            "kicker": "Service",
+            "title": "Shipped with care",
+            "text": "Quick packing, tracking, and support when you need help."
+          }
+        }
+      },
+      "block_order": [
+        "pillar_a",
+        "pillar_b",
+        "pillar_c"
+      ],
+      "settings": {
+        "heading": "Why shop PrimeDealUSA",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -392,7 +433,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>This week\u2019s standout deals</h3>",
+                "text": "<h3>This week’s standout deals</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -712,76 +753,68 @@
         "padding-block-end": 56
       }
     },
-    "pdu_trust_pillars_PDUA": {
-      "type": "pdu-trust-pillars",
-      "blocks": {
-        "pillar_a": {
-          "type": "pillar",
-          "settings": {
-            "kicker": "Authentic",
-            "title": "Real brands, curated",
-            "text": "Recognizable labels you already trust \u2014 not generic alternatives."
-          }
-        },
-        "pillar_b": {
-          "type": "pillar",
-          "settings": {
-            "kicker": "Value",
-            "title": "Pricing you can understand",
-            "text": "Compare-at pricing and savings shown clearly so the deal is obvious."
-          }
-        },
-        "pillar_c": {
-          "type": "pillar",
-          "settings": {
-            "kicker": "Service",
-            "title": "Shipped with care",
-            "text": "Quick packing, tracking, and support when you need help."
-          }
-        }
-      },
-      "block_order": [
-        "pillar_a",
-        "pillar_b",
-        "pillar_c"
-      ],
-      "settings": {
-        "heading": "Why shop PrimeDealUSA",
-        "section_width": "page-width",
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
     "about_us_section": {
       "type": "media-with-content",
-      "settings": {
-        "media_position": "left",
-        "media_width": "medium",
-        "media_height": "50svh",
-        "section_width": "page-width",
-        "extend_media": false,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      },
       "blocks": {
         "media": {
           "type": "_media-without-appearance",
-          "static": true
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
         },
         "content": {
           "type": "_content-without-appearance",
           "static": true,
           "settings": {
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center"
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
           },
           "blocks": {
             "group": {
               "type": "group",
               "settings": {
-                "height": "fit"
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {
                 "heading": {
@@ -789,23 +822,65 @@
                   "name": "Heading",
                   "settings": {
                     "text": "<h2>About Us</h2>",
-                    "type_preset": "h2"
-                  }
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "h2",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 },
                 "text": {
                   "type": "text",
                   "settings": {
                     "text": "<p>Welcome to PrimeDealUSA. We offer premium brands at honest prices. Our mission is to provide you with the best deals on authentic merchandise.</p>",
-                    "type_preset": "rte"
-                  }
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 },
                 "button": {
                   "type": "button",
                   "settings": {
                     "label": "Learn more",
                     "link": "shopify://pages/about-us",
-                    "style_class": "button"
-                  }
+                    "open_in_new_tab": false,
+                    "style_class": "button",
+                    "width": "fit-content",
+                    "custom_width": 100,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 100
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
@@ -819,19 +894,21 @@
             "group"
           ]
         }
+      },
+      "settings": {
+        "media_position": "left",
+        "media_width": "medium",
+        "media_height": "50svh",
+        "section_width": "page-width",
+        "extend_media": false,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
       }
     },
     "pdu_policy_trust_PDUB": {
       "type": "pdu-policy-trust",
       "blocks": {
-        "row_auth": {
-          "type": "row",
-          "settings": {
-            "title": "Authenticity",
-            "body": "<p>We sell genuine branded merchandise. If something doesn\u2019t match what you expected, reach out \u2014 we\u2019ll work with you to resolve it.</p>",
-            "open_by_default": true
-          }
-        },
         "row_ret": {
           "type": "row",
           "settings": {
@@ -850,13 +927,12 @@
         }
       },
       "block_order": [
-        "row_auth",
         "row_ret",
         "row_ship"
       ],
       "settings": {
         "heading": "Shipping, returns & authenticity",
-        "intro": "Premium names deserve clarity. Here\u2019s what to expect when you order.",
+        "intro": "Premium names deserve clarity. Here’s what to expect when you order.",
         "section_width": "page-width",
         "color_scheme": "scheme-2",
         "padding-block-start": 56,
