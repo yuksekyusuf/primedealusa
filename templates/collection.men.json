@@ -111,6 +111,7 @@
         "section_height_custom": 50,
         "color_scheme": "scheme-5",
         "background_media": "image",
+        "background_image": "shopify:\/\/shop_images\/0317_mlp_c03_img.jpg",
         "video_position": "cover",
         "background_image_position": "cover",
         "border": "none",
