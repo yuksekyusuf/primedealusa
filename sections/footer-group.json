@@ -14,6 +14,24 @@
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
+        "menu_about": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer",
+            "heading": "About Us",
+            "heading_preset": "h4",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        },
         "group_H6VpwJ": {
           "type": "group",
           "disabled": true,
@@ -138,6 +156,7 @@
         }
       },
       "block_order": [
+        "menu_about",
         "group_H6VpwJ",
         "email_signup_crihX7"
       ],

@@ -45,7 +45,7 @@
     "page_width": "wide",
     "page_transition_enabled": false,
     "transition_to_main_product": false,
-    "card_hover_effect": "lift",
+    "card_hover_effect": "subtle-zoom",
     "badge_position": "top-right",
     "badge_corner_radius": 6,
     "badge_sale_color_scheme": "scheme-1",

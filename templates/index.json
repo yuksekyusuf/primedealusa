@@ -592,11 +592,11 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h3>Shop by category</h3>",
+                "text": "<h2>Shop by category</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "h2",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -608,7 +608,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 16,
+                "padding-block-end": 24,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -625,39 +625,39 @@
           "static": true,
           "settings": {
             "placement": "on_image",
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "flex-start",
-            "collection_card_gap": 8,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "flex-end",
+            "collection_card_gap": 12,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 0
+            "border_radius": 6
           },
           "blocks": {
             "collection_title_AG4qh7": {
               "type": "collection-title",
               "name": "t:names.collection_title",
               "settings": {
-                "width": "fit-content",
+                "width": "100%",
                 "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.25rem",
+                "line_height": "tight",
+                "letter_spacing": "loose",
+                "case": "uppercase",
                 "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": true,
-                "background_color": "#ffffff",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 4,
-                "padding-inline-start": 8,
-                "padding-inline-end": 8
+                "padding-block-start": 0,
+                "padding-block-end": 20,
+                "padding-inline-start": 16,
+                "padding-inline-end": 16
               },
               "blocks": {}
             },
@@ -666,15 +666,15 @@
               "name": "t:names.collection_card_image",
               "static": true,
               "settings": {
-                "image_ratio": "adapt",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
+                "image_ratio": "portrait",
+                "toggle_overlay": true,
+                "overlay_color": "#000000b3",
+                "overlay_style": "gradient",
                 "gradient_direction": "to top",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0
+                "border_radius": 6
               },
               "blocks": {}
             }
@@ -699,17 +699,17 @@
         "columns": 3,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 8,
+        "columns_gap": 20,
         "bento_gap": 8,
-        "rows_gap": 8,
+        "rows_gap": 20,
         "max_collections": 4,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
-        "gap": 12,
+        "gap": 20,
         "color_scheme": "",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 56,
+        "padding-block-end": 56
       }
     },
     "pdu_trust_pillars_PDUA": {
@@ -751,6 +751,74 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48
+      }
+    },
+    "about_us_section": {
+      "type": "media-with-content",
+      "settings": {
+        "media_position": "left",
+        "media_width": "medium",
+        "media_height": "50svh",
+        "section_width": "page-width",
+        "extend_media": false,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center"
+          },
+          "blocks": {
+            "group": {
+              "type": "group",
+              "settings": {
+                "height": "fit"
+              },
+              "blocks": {
+                "heading": {
+                  "type": "text",
+                  "name": "Heading",
+                  "settings": {
+                    "text": "<h2>About Us</h2>",
+                    "type_preset": "h2"
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Welcome to PrimeDealUSA. We offer premium brands at honest prices. Our mission is to provide you with the best deals on authentic merchandise.</p>",
+                    "type_preset": "rte"
+                  }
+                },
+                "button": {
+                  "type": "button",
+                  "settings": {
+                    "label": "Learn more",
+                    "link": "shopify://pages/about-us",
+                    "style_class": "button"
+                  }
+                }
+              },
+              "block_order": [
+                "heading",
+                "text",
+                "button"
+              ]
+            }
+          },
+          "block_order": [
+            "group"
+          ]
+        }
       }
     },
     "pdu_policy_trust_PDUB": {
@@ -801,6 +869,7 @@
     "pdu_trust_pillars_PDUA",
     "product_list_fa6P9H",
     "collection_list_GDHY34",
+    "about_us_section",
     "pdu_policy_trust_PDUB"
   ]
 }
