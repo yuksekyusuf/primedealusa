@@ -1,0 +1,155 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div class="section-background color-{{ s.color_scheme }}"></div>
+<div
+  class="section section--{{ s.section_width }} color-{{ s.color_scheme }} pdu-trust-pillars spacing-style"
+  style="{% render 'spacing-style', settings: s %}"
+  {{ section.shopify_attributes }}
+>
+  <div class="pdu-trust-pillars__inner">
+    {% if s.heading != blank %}
+      <h2 class="pdu-trust-pillars__heading h3">{{ s.heading | escape }}</h2>
+    {% endif %}
+    <ul class="pdu-trust-pillars__grid" role="list">
+      {% for block in section.blocks %}
+        <li class="pdu-trust-pillars__item" {{ block.shopify_attributes }}>
+          {% if block.settings.kicker != blank %}
+            <p class="pdu-trust-pillars__kicker">{{ block.settings.kicker | escape }}</p>
+          {% endif %}
+          {% if block.settings.title != blank %}
+            <h3 class="pdu-trust-pillars__title">{{ block.settings.title | escape }}</h3>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <p class="pdu-trust-pillars__text">{{ block.settings.text | escape }}</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  .pdu-trust-pillars__inner {
+    width: 100%;
+  }
+  .pdu-trust-pillars__heading {
+    margin: 0 0 1.5rem;
+    max-width: 40rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "PDU trust pillars",
+  "tag": "section",
+  "class": "section-wrapper",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why shop PrimeDealUSA"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Eyebrow",
+          "default": "Authentic"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Real brands, curated"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "We focus on recognizable labels you already trust — not generic knockoffs."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDU trust pillars",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "kicker": "Authentic",
+            "title": "Real brands, curated",
+            "text": "Recognizable names like you’d find in premium retail — sourced with care."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "kicker": "Value",
+            "title": "Pricing that respects your budget",
+            "text": "Competitive pricing with clear compare-at value so savings are easy to see."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "kicker": "Service",
+            "title": "Fast, straightforward fulfillment",
+            "text": "We pack and ship orders quickly with tracking and responsive support."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

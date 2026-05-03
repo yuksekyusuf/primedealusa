@@ -1,0 +1,151 @@
+{%- liquid
+  assign s = section.settings
+-%}
+
+<div class="section-background color-{{ s.color_scheme }}"></div>
+<div
+  class="section section--{{ s.section_width }} color-{{ s.color_scheme }} pdu-policy-trust spacing-style"
+  style="{% render 'spacing-style', settings: s %}"
+  {{ section.shopify_attributes }}
+>
+  {% if s.heading != blank %}
+    <h2 class="h3" style="margin: 0 0 0.75rem;">{{ s.heading | escape }}</h2>
+  {% endif %}
+  {% if s.intro != blank %}
+    <p class="pdu-policy-trust__intro">{{ s.intro | escape }}</p>
+  {% endif %}
+
+  <div class="pdu-policy-trust__accordion">
+    {% for block in section.blocks %}
+      <details
+        class="pdu-policy-trust__details"
+        {% if block.settings.open_by_default %}
+          open
+        {% endif %}
+        {{ block.shopify_attributes }}
+      >
+        <summary class="pdu-policy-trust__summary">{{ block.settings.title | escape }}</summary>
+        <div class="pdu-policy-trust__body rte">
+          {{ block.settings.body }}
+        </div>
+      </details>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "PDU policy & trust",
+  "tag": "section",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shipping, returns & authenticity"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "We know premium names deserve premium clarity. Here’s how we keep shopping simple and trustworthy."
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Accordion row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Shipping"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Content",
+          "default": "<p>Orders are packed quickly and shipped with tracking. Delivery times vary by destination — you’ll see estimates at checkout.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDU policy & trust",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "title": "Authenticity",
+            "body": "<p>We sell genuine branded merchandise. If you ever have a concern about an item you receive, contact us — we’ll make it right.</p>",
+            "open_by_default": true
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "title": "Returns",
+            "body": "<p>Review our return policy for eligible items and time windows. We keep the process straightforward so you can shop with confidence.</p>"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "title": "Shipping",
+            "body": "<p>We ship to addresses supported at checkout. You’ll receive tracking when your order leaves our facility.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

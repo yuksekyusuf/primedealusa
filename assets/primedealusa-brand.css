@@ -1,0 +1,154 @@
+/**
+ * PrimeDealUSA — premium outlet layer on Horizon
+ * Lane A: warm stone surfaces, charcoal type, single rust accent (--pdu-accent)
+ * Photography: prefer 4:5 product crops; one cohesive grade on lifestyle shots
+ */
+
+:root {
+  --pdu-accent: #9a3412;
+  --pdu-accent-hover: #7c2d12;
+  --pdu-surface: #fafaf9;
+  --pdu-ink: #1c1917;
+}
+
+/* Card motion comes from Horizon theme settings (e.g. lift) — avoid double transforms */
+
+/* Editorial readability on wide pages */
+.rte:not(.inline-rte),
+.product-details .rte {
+  max-width: 65ch;
+}
+
+/* Trust / policy sections */
+.pdu-trust-pillars,
+.pdu-policy-trust {
+  contain: layout style;
+}
+
+.pdu-trust-pillars__grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 750px) {
+  .pdu-trust-pillars__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pdu-trust-pillars__item {
+  padding: 1.25rem 0;
+  border-top: 1px solid rgb(var(--color-border-rgb) / 0.35);
+}
+
+@media screen and (min-width: 750px) {
+  .pdu-trust-pillars__item {
+    border-top: none;
+    border-inline-end: 1px solid rgb(var(--color-border-rgb) / 0.35);
+    padding-inline-end: 1.5rem;
+  }
+
+  .pdu-trust-pillars__item:last-child {
+    border-inline-end: none;
+  }
+}
+
+.pdu-trust-pillars__kicker {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pdu-accent);
+  margin: 0 0 0.5rem;
+}
+
+.pdu-trust-pillars__title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--color-foreground-heading);
+}
+
+.pdu-trust-pillars__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-foreground);
+  opacity: 0.92;
+}
+
+.pdu-policy-trust__intro {
+  max-width: 42rem;
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-foreground);
+  opacity: 0.9;
+}
+
+.pdu-policy-trust__accordion {
+  border: 1px solid rgb(var(--color-border-rgb) / 0.45);
+  border-radius: var(--border-radius-sm, 4px);
+  overflow: hidden;
+}
+
+.pdu-policy-trust__accordion details {
+  border-block-end: 1px solid rgb(var(--color-border-rgb) / 0.35);
+}
+
+.pdu-policy-trust__accordion details:last-child {
+  border-block-end: none;
+}
+
+.pdu-policy-trust__summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 1rem 1.125rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-foreground-heading);
+}
+
+.pdu-policy-trust__summary::-webkit-details-marker {
+  display: none;
+}
+
+.pdu-policy-trust__summary::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-inline-end: 2px solid currentColor;
+  border-block-end: 2px solid currentColor;
+  transform: rotate(-45deg);
+  flex-shrink: 0;
+  opacity: 0.55;
+}
+
+.pdu-policy-trust__accordion details[open] .pdu-policy-trust__summary::after {
+  transform: rotate(45deg);
+  margin-block-start: 0.25rem;
+}
+
+.pdu-policy-trust__body {
+  padding: 0 1.125rem 1.125rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-foreground);
+  opacity: 0.9;
+}
+
+.pdu-policy-trust__body p:first-child {
+  margin-top: 0;
+}
+
+.pdu-policy-trust__body p:last-child {
+  margin-bottom: 0;
+}
